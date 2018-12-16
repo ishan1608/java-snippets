@@ -1,6 +1,6 @@
 package space.ishan1608;
 
-public class RotateMatrix {
+public class RotateMatrixExtraMemory {
     private final static String SEPARATOR = "-";
 
     public static void main(String[] args) {
