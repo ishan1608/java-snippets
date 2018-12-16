@@ -5,12 +5,31 @@ public class RotateMatrix {
 
     public static void main(String[] args) {
         int[][] matrix = {
-                {1, 2, 3, 4, 5},
-                {6, 7, 8, 9, 10},
+                { 1,  2,  3,  4,  5},
+                { 6,  7,  8,  9, 10},
                 {11, 12, 13, 14, 15},
                 {16, 17, 18, 19, 20},
         };
+        System.out.println("Original");
         printMatrix(matrix);
+
+        int[][] rotatedMatrix = rotateMatrixExtraMemory(matrix);
+
+        System.out.println("Rotated - Extra Memory");
+        printMatrix(rotatedMatrix);
+    }
+
+    private static int[][] rotateMatrixExtraMemory(int[][] matrix) {
+        int numRows = matrix.length;
+        int numCols = matrix[0].length;
+        int[][] rotatedMatrix = new int[numCols][numRows];
+
+        for (int i = 0; i < rotatedMatrix.length; i++) {
+            for (int j = 0; j < rotatedMatrix[i].length; j++) {
+                rotatedMatrix[i][j] = matrix[numRows - 1 - j][i];
+            }
+        }
+        return rotatedMatrix;
     }
 
     private static void printMatrix(int[][] matrix) {
