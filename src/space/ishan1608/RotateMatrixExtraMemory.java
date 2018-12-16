@@ -1,7 +1,6 @@
 package space.ishan1608;
 
 public class RotateMatrixExtraMemory {
-    private final static String SEPARATOR = "-";
 
     public static void main(String[] args) {
         System.out.println(RotateMatrixExtraMemory.class.getSimpleName());
@@ -12,12 +11,12 @@ public class RotateMatrixExtraMemory {
                 {16, 17, 18, 19, 20},
         };
         System.out.println("Original");
-        printMatrix(matrix);
+        MatrixUtils.printMatrix(matrix);
 
         int[][] rotatedMatrix = rotateMatrixExtraMemory(matrix);
 
         System.out.println("Rotated");
-        printMatrix(rotatedMatrix);
+        MatrixUtils.printMatrix(rotatedMatrix);
     }
 
     private static int[][] rotateMatrixExtraMemory(int[][] matrix) {
@@ -25,32 +24,11 @@ public class RotateMatrixExtraMemory {
         int numCols = matrix[0].length;
         int[][] rotatedMatrix = new int[numCols][numRows];
 
-        for (int i = 0; i < rotatedMatrix.length; i++) {
-            for (int j = 0; j < rotatedMatrix[i].length; j++) {
+        for (int i = 0; i < numCols; i++) {
+            for (int j = 0; j < numRows; j++) {
                 rotatedMatrix[i][j] = matrix[numRows - 1 - j][i];
             }
         }
         return rotatedMatrix;
-    }
-
-    private static void printMatrix(int[][] matrix) {
-        int numColumns = matrix[0].length;
-        _printBorder(numColumns);
-        for (int[] row : matrix) {
-            System.out.print(SEPARATOR);
-            for (int col : row) {
-                System.out.print(String.format("%s%d ", col <= 9 ? "  " : " ", col));
-                System.out.print(SEPARATOR);
-            }
-            System.out.println();
-        }
-        _printBorder(numColumns);
-    }
-
-    private static void _printBorder(int numColumns) {
-        for (int i = 0; i < numColumns; i++) {
-            System.out.print(SEPARATOR.repeat(5));
-        }
-        System.out.println(SEPARATOR);
     }
 }
