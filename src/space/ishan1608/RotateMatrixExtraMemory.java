@@ -4,6 +4,7 @@ public class RotateMatrixExtraMemory {
     private final static String SEPARATOR = "-";
 
     public static void main(String[] args) {
+        System.out.println(RotateMatrixExtraMemory.class.getSimpleName());
         int[][] matrix = {
                 { 1,  2,  3,  4,  5},
                 { 6,  7,  8,  9, 10},
@@ -15,7 +16,7 @@ public class RotateMatrixExtraMemory {
 
         int[][] rotatedMatrix = rotateMatrixExtraMemory(matrix);
 
-        System.out.println("Rotated - Extra Memory");
+        System.out.println("Rotated");
         printMatrix(rotatedMatrix);
     }
 
